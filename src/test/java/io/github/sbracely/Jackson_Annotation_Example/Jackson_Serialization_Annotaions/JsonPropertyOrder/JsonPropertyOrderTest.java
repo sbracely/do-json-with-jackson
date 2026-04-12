@@ -9,9 +9,20 @@ public class JsonPropertyOrderTest {
     @Test
     void whenSerializingUsingJsonPropertyOrder_thenCorrect() {
         MyBean bean = new MyBean(1, "My bean");
+
+        String result = JsonMapper.builder().build().writeValueAsString(bean);
+        IO.println(result);
+
+        Assertions.assertThat(result)
+                .containsSubsequence("My bean", "1");
+    }
+
+    @Test
+    void whenSerializingUsingJsonPropertyOrder_alphabeticTrue_thenCorrect() {
+        MyBeanAlphabetic bean = new MyBeanAlphabetic(1, "My bean");
         String result = JsonMapper.builder().build().writeValueAsString(bean);
         IO.println(result);
         Assertions.assertThat(result)
-                .containsSubsequence("My bean", "1");
+                .containsSubsequence("1", "My bean");
     }
 }

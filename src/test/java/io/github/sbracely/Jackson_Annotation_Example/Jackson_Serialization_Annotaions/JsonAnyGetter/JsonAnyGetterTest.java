@@ -19,4 +19,17 @@ public class JsonAnyGetterTest {
         assertThat(result)
                 .contains("attr1", "val1");
     }
+
+    @Test
+    public void whenSerializingUsingJsonAnyGetter_disable_thenCorrect() {
+        ExtendableBeanEnableFalse bean = new ExtendableBeanEnableFalse("My bean");
+        bean.add("attr1", "val1");
+        bean.add("attr2", "val2");
+
+        String result = JsonMapper.builder().build().writeValueAsString(bean);
+        IO.println(result);
+
+        assertThat(result)
+                .contains("properties", "attr1", "val1");
+    }
 }
