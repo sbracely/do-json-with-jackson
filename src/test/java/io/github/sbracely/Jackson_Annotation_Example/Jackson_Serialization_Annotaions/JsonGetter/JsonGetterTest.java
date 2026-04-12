@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class JsonGetterTest {
     @Test
-    public void whenSerializingUsingJsonGetter_thenCorrect() {
+    void whenSerializingUsingJsonGetter_thenCorrect() {
         MyBean bean = new MyBean(1, "My bean");
 
         String result = JsonMapper.builder().build().writeValueAsString(bean);

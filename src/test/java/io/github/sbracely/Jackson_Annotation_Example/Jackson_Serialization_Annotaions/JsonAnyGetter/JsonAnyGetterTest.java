@@ -8,7 +8,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class JsonAnyGetterTest {
 
     @Test
-    public void whenSerializingUsingJsonAnyGetter_thenCorrect() {
+    void whenSerializingUsingJsonAnyGetter_thenCorrect() {
         ExtendableBean bean = new ExtendableBean("My bean");
         bean.add("attr1", "val1");
         bean.add("attr2", "val2");
@@ -21,7 +21,7 @@ public class JsonAnyGetterTest {
     }
 
     @Test
-    public void whenSerializingUsingJsonAnyGetter_disable_thenCorrect() {
+    void whenSerializingUsingJsonAnyGetter_disable_thenCorrect() {
         ExtendableBeanEnableFalse bean = new ExtendableBeanEnableFalse("My bean");
         bean.add("attr1", "val1");
         bean.add("attr2", "val2");
