@@ -1,0 +1,20 @@
+package io.github.sbracely.Jackson_Annotation_Example.Jackson_Serialization_Annotaions.JsonGetter;
+
+import org.junit.jupiter.api.Test;
+import tools.jackson.databind.ObjectMapper;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class JsonGetterTest {
+    @Test
+    public void whenSerializingUsingJsonGetter_thenCorrect() {
+        MyBean bean = new MyBean(1, "My bean");
+
+        String result = new ObjectMapper().writeValueAsString(bean);
+        IO.println(result);
+
+        assertThat(result)
+                .containsSequence("My bean")
+                .containsSequence("1");
+    }
+}
