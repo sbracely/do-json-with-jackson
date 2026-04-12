@@ -14,7 +14,6 @@ public class JsonGetterTest {
         IO.println(result);
 
         assertThat(result)
-                .containsSequence("My bean")
-                .containsSequence("1");
+                .contains("My bean", "1");
     }
 }

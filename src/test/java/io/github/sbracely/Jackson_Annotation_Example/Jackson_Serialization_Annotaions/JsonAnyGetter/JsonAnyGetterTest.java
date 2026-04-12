@@ -17,7 +17,6 @@ public class JsonAnyGetterTest {
         IO.println(result);
 
         assertThat(result)
-                .contains("attr1")
-                .contains("val1");
+                .contains("attr1", "val1");
     }
 }
