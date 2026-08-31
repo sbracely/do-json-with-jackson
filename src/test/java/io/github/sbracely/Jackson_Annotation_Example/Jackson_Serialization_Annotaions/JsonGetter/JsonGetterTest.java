@@ -14,6 +14,7 @@ public class JsonGetterTest {
         IO.println(result);
 
         assertThat(result)
-                .contains("My bean", "1");
+                .doesNotContain("\"theName\"")
+                .contains("\"name\"", "My bean", "1");
     }
 }
