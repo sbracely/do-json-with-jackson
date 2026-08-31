@@ -3,10 +3,26 @@ package io.github.sbracely.Jackson_Annotation_Example.Jackson_Serialization_Anno
 import com.fasterxml.jackson.annotation.JsonRawValue;
 
 public class RawBean {
-    public String name;
+    private String name;
+
+    private String json;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     @JsonRawValue
-    public String json;
+    public String getJson() {
+        return json;
+    }
+
+    public void setJson(String json) {
+        this.json = json;
+    }
 
     public RawBean(String name, String json) {
         this.name = name;
