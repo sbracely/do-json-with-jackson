@@ -12,4 +12,13 @@ public class TypeEnumWithValueTest {
         IO.println(enumAsString);
         Assertions.assertThat(enumAsString).isEqualTo("\"Type A\"");
     }
+
+    @Test
+    void whenSerializingUsingJsonValue_thenCorrect2() {
+        JsonMapper jsonMapper = JsonMapper.builder().build();
+        BeanWithEnum beanWithEnum = new BeanWithEnum("name", TypeEnumWithValue.TYPE1);
+        String jsonString = jsonMapper.writeValueAsString(beanWithEnum);
+        IO.println(jsonString);
+        Assertions.assertThat(jsonString).contains("\"Type A\"");
+    }
 }
