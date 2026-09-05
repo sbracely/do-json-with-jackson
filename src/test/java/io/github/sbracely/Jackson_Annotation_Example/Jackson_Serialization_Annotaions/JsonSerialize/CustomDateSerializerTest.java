@@ -5,16 +5,16 @@ import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class CustomDateSerializerTest {
     @Test
-    void whenSerializingUsingJsonSerialize_thenCorrect() throws ParseException {
-        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+    void whenSerializingUsingJsonSerialize_thenCorrect() {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String toParse = "20-12-2014 02:30:00";
-        Date date = df.parse(toParse);
-        Event event = new Event("party", date);
+        LocalDateTime eventDateTime = LocalDateTime.parse(toParse, dateTimeFormatter);
+        Event event = new Event("party", eventDateTime);
 
         String result = JsonMapper.builder().build().writeValueAsString(event);
         IO.println(result);
