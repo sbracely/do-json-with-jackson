@@ -11,13 +11,8 @@ import java.time.LocalDateTime;
 public class CustomDateSerializer extends StdSerializer<LocalDateTime> {
 
     protected CustomDateSerializer() {
-        this(null);
+        super(LocalDateTime.class);
     }
-
-    protected CustomDateSerializer(Class<LocalDateTime> t) {
-        super(t);
-    }
-
 
     @Override
     public void serialize(LocalDateTime value, JsonGenerator gen, SerializationContext ctxt) throws JacksonException {

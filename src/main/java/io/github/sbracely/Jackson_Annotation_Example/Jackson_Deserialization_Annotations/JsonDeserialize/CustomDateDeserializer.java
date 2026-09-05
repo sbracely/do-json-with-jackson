@@ -11,11 +11,7 @@ import java.time.LocalDateTime;
 public class CustomDateDeserializer extends StdDeserializer<LocalDateTime> {
 
     protected CustomDateDeserializer() {
-        this(LocalDateTime.class);
-    }
-
-    protected CustomDateDeserializer(Class<LocalDateTime> t) {
-        super(t);
+        super(LocalDateTime.class);
     }
 
     @Override
