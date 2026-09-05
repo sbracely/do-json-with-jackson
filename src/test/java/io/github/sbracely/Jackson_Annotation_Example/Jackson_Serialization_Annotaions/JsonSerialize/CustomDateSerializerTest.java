@@ -4,21 +4,18 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
 
-import java.text.ParseException;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class CustomDateSerializerTest {
     @Test
     void whenSerializingUsingJsonSerialize_thenCorrect() {
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        String toParse = "20-12-2014 02:30:00";
-        LocalDateTime eventDateTime = LocalDateTime.parse(toParse, dateTimeFormatter);
-        Event event = new Event("party", eventDateTime);
+        LocalDateTime eventDateTime = LocalDateTime.of(2014, 12, 20, 2, 30, 0);
+        Event event = new Event("name", eventDateTime);
 
         String result = JsonMapper.builder().build().writeValueAsString(event);
         IO.println(result);
 
+        String toParse = "20-12-2014 02:30:00";
         Assertions.assertThat(result).contains(toParse);
     }
 }
