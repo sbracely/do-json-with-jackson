@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class JavaObjectToJSONTest {
+class JavaObjectToJsonTest {
 
     private static final Path OUTPUT_PATH = Path.of("target", "car.json");
 
