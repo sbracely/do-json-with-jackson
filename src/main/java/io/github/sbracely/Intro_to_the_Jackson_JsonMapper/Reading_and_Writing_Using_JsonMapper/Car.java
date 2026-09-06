@@ -1,4 +1,4 @@
-package io.github.sbracely.Reading_and_Writing_Using_JsonMapper;
+package io.github.sbracely.Intro_to_the_Jackson_JsonMapper.Reading_and_Writing_Using_JsonMapper;
 
 public class Car {
     private String color;
