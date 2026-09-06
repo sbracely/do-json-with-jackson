@@ -1,6 +1,6 @@
 package io.github.sbracely.Jackson_Annotation_Example.Jackson_Serialization_Annotaions.JsonPropertyOrder;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
 
@@ -13,7 +13,7 @@ public class JsonPropertyOrderTest {
         String result = JsonMapper.builder().build().writeValueAsString(bean);
         IO.println(result);
 
-        Assertions.assertThat(result)
+        assertThat(result)
                 .containsSubsequence("My bean", "1");
     }
 
@@ -22,7 +22,7 @@ public class JsonPropertyOrderTest {
         MyBeanAlphabetic bean = new MyBeanAlphabetic(1, "My bean");
         String result = JsonMapper.builder().build().writeValueAsString(bean);
         IO.println(result);
-        Assertions.assertThat(result)
+        assertThat(result)
                 .containsSubsequence("1", "My bean");
     }
 }

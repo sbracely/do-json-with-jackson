@@ -1,6 +1,6 @@
 package io.github.sbracely.Jackson_Annotation_Example.Jackson_Serialization_Annotaions.JsonSerialize;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
 
@@ -16,6 +16,6 @@ public class CustomDateSerializerTest {
         IO.println(result);
 
         String toParse = "20-12-2014 02:30:00";
-        Assertions.assertThat(result).contains(toParse);
+        assertThat(result).contains(toParse);
     }
 }

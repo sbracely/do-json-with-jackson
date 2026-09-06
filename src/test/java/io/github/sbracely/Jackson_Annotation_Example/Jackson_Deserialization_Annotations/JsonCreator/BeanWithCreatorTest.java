@@ -1,6 +1,6 @@
 package io.github.sbracely.Jackson_Annotation_Example.Jackson_Deserialization_Annotations.JsonCreator;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
 
@@ -16,6 +16,6 @@ public class BeanWithCreatorTest {
         BeanWithCreator bean = JsonMapper.builder().build()
                 .readerFor(BeanWithCreator.class)
                 .readValue(json);
-        Assertions.assertThat(bean.name).isEqualTo("My bean");
+        assertThat(bean.name).isEqualTo("My bean");
     }
 }

@@ -1,6 +1,6 @@
 package io.github.sbracely.Jackson_Annotation_Example.Jackson_General_Annotations.JsonProperty;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
 
@@ -14,9 +14,9 @@ public class JsonPropertyTest {
         JsonMapper jsonMapper = JsonMapper.builder().build();
         String json = jsonMapper.writeValueAsString(myBean);
         IO.println(json);
-        Assertions.assertThat(json).contains("\"name\":\"Test Name\"");
+        assertThat(json).contains("\"name\":\"Test Name\"");
 
         MyBean myBean2 = jsonMapper.readValue(json, MyBean.class);
-        Assertions.assertThat(myBean2.getTheName()).isEqualTo("Test Name");
+        assertThat(myBean2.getTheName()).isEqualTo("Test Name");
     }
 }

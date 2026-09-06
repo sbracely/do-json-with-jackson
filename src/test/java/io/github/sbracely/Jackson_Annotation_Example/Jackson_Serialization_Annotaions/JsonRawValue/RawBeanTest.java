@@ -1,6 +1,6 @@
 package io.github.sbracely.Jackson_Annotation_Example.Jackson_Serialization_Annotaions.JsonRawValue;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
 
@@ -14,7 +14,7 @@ public class RawBeanTest {
                 """);
         String result = JsonMapper.builder().build().writeValueAsString(bean);
         IO.println(result);
-        Assertions.assertThat(result)
+        assertThat(result)
                 .contains("My bean", """
                         {
                             "attr":false
@@ -31,7 +31,7 @@ public class RawBeanTest {
                 """);
         String result = JsonMapper.builder().build().writeValueAsString(bean);
         IO.println(result);
-        Assertions.assertThat(result)
+        assertThat(result)
                 .contains("My bean", """
                         {\\n    \\"attr\\":false\\n}\\n""");
     }

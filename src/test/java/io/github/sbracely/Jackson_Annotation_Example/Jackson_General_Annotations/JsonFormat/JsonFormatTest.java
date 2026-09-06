@@ -1,6 +1,6 @@
 package io.github.sbracely.Jackson_Annotation_Example.Jackson_General_Annotations.JsonFormat;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
 
@@ -15,6 +15,6 @@ public class JsonFormatTest {
         JsonMapper jsonMapper = JsonMapper.builder().build();
         String json = jsonMapper.writeValueAsString(event);
         IO.println(json);
-        Assertions.assertThat(json).containsPattern("\\d{2}-\\d{2}-\\d{4} \\d{2}:\\d{2}:\\d{2}");
+        assertThat(json).containsPattern("\\d{2}-\\d{2}-\\d{4} \\d{2}:\\d{2}:\\d{2}");
     }
 }

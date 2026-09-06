@@ -1,6 +1,6 @@
 package io.github.sbracely.Jackson_Annotation_Example.Jackson_Deserialization_Annotations.JsonDeserialize;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
 
@@ -18,9 +18,9 @@ public class JsonDeserializeTest {
                 """;
         JsonMapper jsonMapper = JsonMapper.builder().build();
         Event event = jsonMapper.readValue(json, Event.class);
-        Assertions.assertThat(event).isNotNull();
-        Assertions.assertThat(event.name).isEqualTo("My Event");
+        assertThat(event).isNotNull();
+        assertThat(event.name).isEqualTo("My Event");
         LocalDateTime localDateTime = LocalDateTime.of(2014, 12, 20, 2, 30, 0);
-        Assertions.assertThat(event.eventDateTime).isEqualTo(localDateTime);
+        assertThat(event.eventDateTime).isEqualTo(localDateTime);
     }
 }

@@ -1,6 +1,6 @@
 package io.github.sbracely.Jackson_Annotation_Example.Jackson_Deserialization_Annotations.JsonAlias;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
 
@@ -22,9 +22,7 @@ public class JsonAliasTest {
         JsonMapper jsonMapper = JsonMapper.builder().build();
         AliasBean jsonAlias1 = jsonMapper.readValue(json1, AliasBean.class);
         AliasBean jsonAlias2 = jsonMapper.readValue(json2, AliasBean.class);
-        Assertions.assertThat(jsonAlias1.getFirstName()).isEqualTo("John");
-        Assertions.assertThat(jsonAlias1.getFirstName()).isEqualTo("John");
-        Assertions.assertThat(jsonAlias2.getLastName()).isEqualTo("Doe");
-        Assertions.assertThat(jsonAlias2.getLastName()).isEqualTo("Doe");
+        assertThat(jsonAlias1.getFirstName()).isEqualTo("John");
+        assertThat(jsonAlias2.getLastName()).isEqualTo("Doe");
     }
 }

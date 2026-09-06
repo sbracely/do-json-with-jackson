@@ -3,7 +3,7 @@ package io.github.sbracely.Jackson_Annotation_Example.Jackson_Serialization_Anno
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class JsonAnyGetterTest {
 

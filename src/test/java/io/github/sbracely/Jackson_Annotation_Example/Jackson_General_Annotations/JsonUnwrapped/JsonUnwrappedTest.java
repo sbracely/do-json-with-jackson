@@ -1,8 +1,9 @@
 package io.github.sbracely.Jackson_Annotation_Example.Jackson_General_Annotations.JsonUnwrapped;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class JsonUnwrappedTest {
 
@@ -20,13 +21,13 @@ public class JsonUnwrappedTest {
         String json = jsonMapper.writeValueAsString(unwrappedUser);
         IO.println(json);
 
-        Assertions.assertThat(json).contains("\"id\":1");
-        Assertions.assertThat(json).contains("\"firstName\":\"John\"");
-        Assertions.assertThat(json).contains("\"lastName\":\"Doe\"");
+        assertThat(json).contains("\"id\":1")
+                .contains("\"firstName\":\"John\"")
+                .contains("\"lastName\":\"Doe\"");
 
         UnwrappedUser unwrappedUser2 = jsonMapper.readValue(json, UnwrappedUser.class);
-        Assertions.assertThat(unwrappedUser2.id).isEqualTo(1);
-        Assertions.assertThat(unwrappedUser2.name.firstName).isEqualTo("John");
-        Assertions.assertThat(unwrappedUser2.name.lastName).isEqualTo("Doe");
+        assertThat(unwrappedUser2)
+                .extracting(user -> user.id, user -> user.name.firstName, user -> user.name.lastName)
+                .containsExactly(1, "John", "Doe");
     }
 }

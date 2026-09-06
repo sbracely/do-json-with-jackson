@@ -1,6 +1,6 @@
 package io.github.sbracely.Jackson_Annotation_Example.Jackson_Polymorphic_Type_Handling_Annotations;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
 
@@ -15,7 +15,7 @@ public class JacksonPolymorphicTypeHandlingAnnotationsTest {
 
         String json = jsonMapper.writeValueAsString(zoo);
         IO.println(json);
-        Assertions.assertThat(json).contains("\"type\":\"dog\"");
+        assertThat(json).contains("\"type\":\"dog\"");
     }
 
     @Test
@@ -31,7 +31,7 @@ public class JacksonPolymorphicTypeHandlingAnnotationsTest {
 
         JsonMapper jsonMapper = JsonMapper.builder().build();
         Zoo zoo = jsonMapper.readerFor(Zoo.class).readValue(catJson);
-        Assertions.assertThat(zoo.animal).isInstanceOf(Cat.class);
-        Assertions.assertThat(zoo.animal.name).isEqualTo("lacy");
+        assertThat(zoo.animal).isInstanceOf(Cat.class);
+        assertThat(zoo.animal.name).isEqualTo("lacy");
     }
 }

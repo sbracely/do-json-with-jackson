@@ -1,6 +1,6 @@
 package io.github.sbracely.Jackson_Annotation_Example.Jackson_General_Annotations.JsonView;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
 
@@ -17,14 +17,16 @@ public class JsonViewTest {
         String publicJson = jsonMapper.writerWithView(Views.Public.class)
                 .writeValueAsString(item);
         IO.println(publicJson);
-        Assertions.assertThat(publicJson).contains("\"id\":2");
-        Assertions.assertThat(publicJson).contains("\"itemName\":\"itemName\"");
-        Assertions.assertThat(publicJson).doesNotContain("ownerName");
+        assertThat(publicJson)
+                .contains("\"id\":2")
+                .contains("\"itemName\":\"itemName\"")
+                .doesNotContain("ownerName");
         String internalJson = jsonMapper.writerWithView(Views.Internal.class)
                 .writeValueAsString(item);
         IO.println(internalJson);
-        Assertions.assertThat(internalJson).contains("\"id\":2");
-        Assertions.assertThat(internalJson).contains("\"itemName\":\"itemName\"");
-        Assertions.assertThat(internalJson).contains("\"ownerName\":\"ownerName\"");
+        assertThat(internalJson)
+                .contains("\"id\":2")
+                .contains("\"itemName\":\"itemName\"")
+                .contains("\"ownerName\":\"ownerName\"");
     }
 }

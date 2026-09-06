@@ -1,6 +1,6 @@
 package io.github.sbracely.Jackson_Annotation_Example.Jackson_Serialization_Annotaions.JsonRootName;
 
-import org.assertj.core.api.Assertions;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.SerializationFeature;
 import tools.jackson.databind.json.JsonMapper;
@@ -16,7 +16,7 @@ public class UserWithRootTest {
                 .writeValueAsString(user);
         IO.println(result);
 
-        Assertions.assertThat(result)
+        assertThat(result)
                 .containsSubsequence("user", "John");
     }
 
@@ -29,7 +29,7 @@ public class UserWithRootTest {
                 .writeValueAsString(user);
         IO.println(result);
 
-        Assertions.assertThat(result)
+        assertThat(result)
                 .containsSubsequence("user xmlns=\"users\"", "John");
     }
 }
