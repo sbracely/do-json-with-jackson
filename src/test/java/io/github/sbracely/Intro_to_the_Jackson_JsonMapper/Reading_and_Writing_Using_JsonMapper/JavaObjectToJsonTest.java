@@ -1,5 +1,6 @@
 package io.github.sbracely.Intro_to_the_Jackson_JsonMapper.Reading_and_Writing_Using_JsonMapper;
 
+import io.github.sbracely.Intro_to_the_Jackson_JsonMapper.Car;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
