@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import tools.jackson.databind.MapperFeature;
 import tools.jackson.databind.json.JsonMapper;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class DisableJacksonAnnotationTest {
     @Test

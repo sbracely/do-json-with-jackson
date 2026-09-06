@@ -1,8 +1,9 @@
 package io.github.sbracely.Jackson_Annotation_Example.Custom_Jackson_Annotation;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CustomJacksonAnnotationTest {
     @Test
@@ -16,7 +17,7 @@ public class CustomJacksonAnnotationTest {
         String json = jsonMapper.writeValueAsString(bean);
         IO.println(json);
 
-        Assertions.assertThat(json).contains("\"name\":\"Test Name\"")
+        assertThat(json).contains("\"name\":\"Test Name\"")
                 .doesNotContain("dateCreated");
     }
 }

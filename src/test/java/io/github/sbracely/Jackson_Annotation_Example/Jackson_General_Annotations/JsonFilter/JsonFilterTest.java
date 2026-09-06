@@ -1,10 +1,11 @@
 package io.github.sbracely.Jackson_Annotation_Example.Jackson_General_Annotations.JsonFilter;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
 import tools.jackson.databind.ser.std.SimpleBeanPropertyFilter;
 import tools.jackson.databind.ser.std.SimpleFilterProvider;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class JsonFilterTest {
     @Test
@@ -20,7 +21,7 @@ public class JsonFilterTest {
         String json = jsonMapper.writer(simpleFilterProvider).writeValueAsString(beanWithFilter);
         IO.println(json);
 
-        Assertions.assertThat(json).contains("\"name\":\"Test Name\"")
+        assertThat(json).contains("\"name\":\"Test Name\"")
                 .doesNotContain("\"id\":1");
     }
 }
