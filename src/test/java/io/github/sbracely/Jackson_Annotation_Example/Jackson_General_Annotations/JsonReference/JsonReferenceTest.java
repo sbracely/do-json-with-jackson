@@ -41,8 +41,7 @@ public class JsonReferenceTest {
         assertThat(deserializedUserWithRef.userItems).hasSize(1);
         assertThat(deserializedUserWithRef.userItems.getFirst().id).isEqualTo(2);
         assertThat(deserializedUserWithRef.userItems.getFirst().itemName).isEqualTo("Item 1");
-        assertThat(deserializedUserWithRef.userItems.getFirst().owner)
-                .isSameAs(deserializedUserWithRef);
+        assertThat(deserializedUserWithRef.userItems.getFirst().owner) .isSameAs(deserializedUserWithRef);
 
         assertThat(deserializedItemWithRef.id).isEqualTo(2);
         assertThat(deserializedItemWithRef.itemName).isEqualTo("Item 1");
