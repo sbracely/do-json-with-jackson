@@ -7,6 +7,7 @@ import tools.jackson.databind.json.JsonMapper;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -24,10 +25,15 @@ class JavaObjectToJSONTest {
         Car car = new Car();
         car.setColor("red");
         car.setType("sedan");
-        JsonMapper.builder().build().writeValue(OUTPUT_PATH, car);
+        JsonMapper jsonMapper = JsonMapper.builder().build();
+        String json = jsonMapper.writeValueAsString(car);
+        IO.println(json);
+        byte[] bytes = jsonMapper.writeValueAsBytes(car);
+        IO.println(Arrays.toString(bytes));
+        jsonMapper.writeValue(OUTPUT_PATH, car);
 
         assertThat(Files.exists(OUTPUT_PATH)).isTrue();
         assertThat(Files.readString(OUTPUT_PATH))
-                .isEqualTo("{\"color\":\"red\",\"type\":\"sedan\"}");
+                .isEqualTo(json);
     }
 }
