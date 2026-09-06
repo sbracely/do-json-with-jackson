@@ -1,6 +1,6 @@
 package io.github.sbracely.Jackson_Annotation_Example.Jackson_Deserialization_Annotations.JsonSetter;
 
-import org.junit.jupiter.api.Assertions;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.json.JsonMapper;
 
@@ -15,8 +15,8 @@ public class JsonSetterTest {
                 """;
         JsonMapper jsonMapper = JsonMapper.builder().build();
         MyBean myBean = jsonMapper.readValue(json, MyBean.class);
-        Assertions.assertNotNull(myBean);
-        Assertions.assertEquals(1, myBean.id);
-        Assertions.assertEquals("My Bean", myBean.getTheName());
+        Assertions.assertThat(myBean).isNotNull();
+        Assertions.assertThat(myBean.id).isEqualTo(1);
+        Assertions.assertThat(myBean.getTheName()).isEqualTo("My Bean");
     }
 }
