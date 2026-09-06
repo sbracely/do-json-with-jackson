@@ -11,7 +11,7 @@ import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class JsonToJacksonJsonNode {
+public class JsonToJacksonJsonNodeTest {
     @Test
     void readsJsonNodeFromJsonFile() throws URISyntaxException {
         Path path = Paths.get(Objects.requireNonNull(getClass().getClassLoader().getResource("car.json")).toURI());
