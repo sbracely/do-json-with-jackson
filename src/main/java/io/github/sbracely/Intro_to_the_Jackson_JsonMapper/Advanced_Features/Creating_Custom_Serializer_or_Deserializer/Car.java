@@ -1,9 +1,8 @@
-package io.github.sbracely.Intro_to_the_Jackson_JsonMapper.Advanced_Features;
+package io.github.sbracely.Intro_to_the_Jackson_JsonMapper.Advanced_Features.Creating_Custom_Serializer_or_Deserializer;
 
-public class CarWithYear {
+public class Car {
     private String color;
     private String type;
-    private int year;
 
     public String getColor() {
         return color;
@@ -19,13 +18,5 @@ public class CarWithYear {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
     }
 }

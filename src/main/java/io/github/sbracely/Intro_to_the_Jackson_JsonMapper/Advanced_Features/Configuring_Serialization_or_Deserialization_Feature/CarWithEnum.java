@@ -1,4 +1,4 @@
-package io.github.sbracely.Intro_to_the_Jackson_JsonMapper.Advanced_Features;
+package io.github.sbracely.Intro_to_the_Jackson_JsonMapper.Advanced_Features.Configuring_Serialization_or_Deserialization_Feature;
 
 public class CarWithEnum {
     public enum Color {
