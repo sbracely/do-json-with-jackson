@@ -1,4 +1,4 @@
-package io.github.sbracely.JacksonIgnorePropertiesOnMarshalling.IgnoreFieldsUsingFilters;
+package io.github.sbracely.Jackson_Ignore_Properties_on_Marshalling.Ignore_Fields_Using_Filters;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
 

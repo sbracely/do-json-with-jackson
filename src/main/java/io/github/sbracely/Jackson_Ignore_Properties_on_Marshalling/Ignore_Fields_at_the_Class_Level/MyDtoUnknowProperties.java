@@ -1,9 +1,9 @@
-package io.github.sbracely.JacksonIgnorePropertiesOnMarshalling.IgnoreFieldsAtTheClassLevel;
+package io.github.sbracely.Jackson_Ignore_Properties_on_Marshalling.Ignore_Fields_at_the_Class_Level;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties(value = {"intValue"})
-public class MyDto {
+@JsonIgnoreProperties(value = {"intValue"}, ignoreUnknown = true)
+public class MyDtoUnknowProperties {
     private String stringValue;
     private int intValue;
     private boolean boolValue;

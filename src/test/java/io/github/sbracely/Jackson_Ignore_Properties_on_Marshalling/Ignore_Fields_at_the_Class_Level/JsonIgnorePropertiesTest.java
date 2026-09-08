@@ -1,4 +1,4 @@
-package io.github.sbracely.JacksonIgnorePropertiesOnMarshalling.IgnoreFieldsAtTheClassLevel;
+package io.github.sbracely.Jackson_Ignore_Properties_on_Marshalling.Ignore_Fields_at_the_Class_Level;
 
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.DeserializationFeature;

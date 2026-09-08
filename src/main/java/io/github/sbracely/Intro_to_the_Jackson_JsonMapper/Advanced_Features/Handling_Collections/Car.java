@@ -1,4 +1,4 @@
-package io.github.sbracely.Intro_to_the_Jackson_JsonMapper.Advanced_Features.HandlingCollections;
+package io.github.sbracely.Intro_to_the_Jackson_JsonMapper.Advanced_Features.Handling_Collections;
 
 public class Car {
     private String type;
