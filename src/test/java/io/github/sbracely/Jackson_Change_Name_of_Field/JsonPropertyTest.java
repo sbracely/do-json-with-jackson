@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class JsonPropertyTest {
     @Test
-    void test() {
+    void shouldSerializeJsonPropertyName() {
         MyDto myDto = new MyDto();
         myDto.setStringValue("test");
         JsonMapper jsonMapper = JsonMapper.builder().build();
