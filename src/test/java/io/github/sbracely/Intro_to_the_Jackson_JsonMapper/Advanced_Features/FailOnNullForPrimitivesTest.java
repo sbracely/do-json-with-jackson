@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.*;
 
 public class FailOnNullForPrimitivesTest {
     @Test
-    void failOnNullForPrimitivesTest() {
+    void missingPrimitiveValueDoesNotFailDeserialization() {
         String json = """
                 {
                     "color" : "Black",
@@ -33,7 +33,7 @@ public class FailOnNullForPrimitivesTest {
     }
 
     @Test
-    void failOnNullForPrimitivesTest2() {
+    void nullPrimitiveValueFailsDeserializationByDefault() {
         String json = """
                 {
                     "color" : "Black",
@@ -54,6 +54,7 @@ public class FailOnNullForPrimitivesTest {
                 .without(DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES);
         boolean readerEnabled = objectReader.isEnabled(DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES);
         IO.println("FAIL_ON_NULL_FOR_PRIMITIVES enabled: " + readerEnabled);
+        assertThat(readerEnabled).isFalse();
         assertThatNoException().isThrownBy(() -> objectReader.readValue(json));
     }
 }
